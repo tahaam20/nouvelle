@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nouvelle | گالری طلا</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500;1,600&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0908;
+  --bg-soft:#141110;
+  --panel:#1a1614;
+  --line:rgba(201,160,76,.22);
+  --gold-1:#f2d78a;
+  --gold-2:#caa04c;
+  --gold-3:#9c7a34;
+  --cream:#efe6d3;
+  --muted:#a89a86;
+  --danger:#c1584a;
+  --ok:#7fae7a;
+  --radius:2px;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Vazirmatn',sans-serif;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.disp{font-family:'Playfair Display',serif;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+img{max-width:100%;display:block;}
+::selection{background:var(--gold-2);color:#000;}
+
+/* ---------- top bar ---------- */
+.topbar{
+  background:#000;border-bottom:1px solid var(--line);
+  font-size:12.5px;color:var(--muted);letter-spacing:.03em;
+}
+.topbar-in{max-width:1240px;margin:0 auto;padding:7px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.gold-ticker{display:flex;align-items:center;gap:8px;color:var(--gold-1);font-weight:600;}
+.gold-ticker .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 6px var(--ok);animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.gold-ticker .lbl{color:var(--muted);font-weight:400;}
+.topbar-links{display:flex;gap:16px;}
+.topbar-links button{background:none;border:none;color:var(--muted);font-size:12.5px;}
+.topbar-links button:hover{color:var(--gold-1);}
+
+/* ---------- header ---------- */
+header.site{
+  position:sticky;top:0;z-index:40;background:rgba(11,9,8,.92);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-in{max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.brand{display:flex;align-items:center;gap:10px;}
+.brand svg{width:38px;height:38px;flex:none;}
+.brand .word{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:26px;color:var(--gold-1);letter-spacing:.02em;}
+.brand .sub{font-size:10.5px;color:var(--muted);letter-spacing:.15em;margin-top:1px;}
+
+nav.mega{display:flex;gap:2px;}
+.mega-item{position:relative;}
+.mega-item>button{background:none;border:none;color:var(--cream);font-size:14.5px;padding:10px 16px;display:flex;align-items:center;gap:6px;}
+.mega-item>button:hover, .mega-item.open>button{color:var(--gold-1);}
+.mega-item>button svg{width:10px;height:10px;transition:transform .2s;}
+.mega-item.open>button svg{transform:rotate(180deg);}
+.mega-panel{
+  position:absolute;top:100%;right:0;min-width:230px;background:var(--panel);
+  border:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.5);
+  padding:10px;display:none;
+}
+.mega-item.open .mega-panel{display:block;}
+.mega-panel a{display:block;padding:9px 12px;font-size:13.5px;color:var(--muted);border-radius:1px;}
+.mega-panel a:hover{background:rgba(201,160,76,.1);color:var(--gold-1);}
+
+.header-actions{display:flex;align-items:center;gap:6px;}
+.icon-btn{background:none;border:1px solid transparent;color:var(--cream);padding:8px;border-radius:50%;position:relative;display:flex;}
+.icon-btn:hover{border-color:var(--line);color:var(--gold-1);}
+.icon-btn svg{width:20px;height:20px;}
+.badge{position:absolute;top:2px;left:2px;background:var(--gold-2);color:#1a1200;font-size:10px;font-weight:700;min-width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+
+.burger{display:none;background:none;border:none;color:var(--cream);}
+.burger svg{width:24px;height:24px;}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:90px 20px 70px;text-align:center;overflow:hidden;border-bottom:1px solid var(--line);}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% -10%, rgba(201,160,76,.16), transparent 60%);
+  pointer-events:none;
+}
+.hero-ring{width:120px;height:120px;margin:0 auto 26px;opacity:.9;}
+.hero h1{font-size:clamp(34px,5vw,58px);margin:0 0 14px;font-weight:600;color:var(--gold-1);}
+.hero p{color:var(--muted);max-width:560px;margin:0 auto 30px;line-height:2;font-size:15px;}
+.hero-cta{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:13px 30px;font-size:14px;letter-spacing:.02em;
+  border:1px solid var(--gold-2);background:transparent;color:var(--gold-1);transition:.2s;
+}
+.btn:hover{background:var(--gold-2);color:#161006;}
+.btn.solid{background:linear-gradient(180deg,var(--gold-1),var(--gold-2));color:#1a1300;border-color:transparent;font-weight:600;}
+.btn.solid:hover{filter:brightness(1.08);}
+.btn.ghost{border-color:var(--line);color:var(--cream);}
+.btn.ghost:hover{border-color:var(--gold-2);color:var(--gold-1);background:transparent;}
+.btn.sm{padding:8px 16px;font-size:12.5px;}
+.btn.block{width:100%;justify-content:center;}
+.btn.danger{border-color:var(--danger);color:var(--danger);}
+.btn.danger:hover{background:var(--danger);color:#fff;}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+
+/* ---------- sections ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px;}
+.section{padding:56px 0;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;gap:16px;flex-wrap:wrap;}
+.section-head .eyebrow{color:var(--gold-2);font-size:12px;letter-spacing:.18em;margin-bottom:6px;display:block;}
+.section-head h2{font-family:'Playfair Display',serif;font-size:30px;margin:0;color:var(--cream);font-weight:600;}
+.divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent);margin:0;}
+
+.cat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.cat-card{position:relative;aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(160deg,#201a15,#0d0b09);}
+.cat-card h3{font-family:'Playfair Display',serif;color:var(--gold-1);font-size:22px;margin:0;font-weight:600;}
+.cat-card span{color:var(--muted);font-size:12px;}
+.cat-card:hover{border-color:var(--gold-2);}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
+.pcard{background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:.2s;}
+.pcard:hover{border-color:var(--gold-2);transform:translateY(-3px);}
+.pcard .img{aspect-ratio:1;background:#100d0b;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pcard .img img{width:100%;height:100%;object-fit:cover;}
+.pcard .ph{color:var(--gold-3);width:40%;}
+.pcard .info{padding:14px 14px 16px;}
+.pcard .cat{font-size:11px;color:var(--gold-2);letter-spacing:.05em;}
+.pcard .name{font-size:15px;margin:5px 0 8px;color:var(--cream);}
+.pcard .price{font-size:15px;color:var(--gold-1);font-weight:700;}
+.pcard .price small{color:var(--muted);font-weight:400;font-size:11px;}
+.pcard .weight{font-size:11.5px;color:var(--muted);margin-top:3px;}
+.empty{color:var(--muted);text-align:center;padding:60px 20px;border:1px dashed var(--line);font-size:14px;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft);}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%;background:none;border:none;color:var(--cream);text-align:right;padding:18px 4px;font-size:14.5px;display:flex;justify-content:space-between;align-items:center;}
+.faq-q svg{width:14px;height:14px;color:var(--gold-2);transition:transform .2s;flex:none;}
+.faq-item.open .faq-q svg{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;color:var(--muted);font-size:13.5px;line-height:2;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:16px;}
+.foot-bottom{text-align:center;padding:22px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);}
+
+/* ---------- modal / drawer ---------- */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);z-index:100;display:none;}
+.overlay.show{display:block;}
+.drawer{position:fixed;top:0;left:0;height:100%;width:min(400px,92vw);background:var(--panel);border-right:1px solid var(--line);z-index:101;transform:translateX(-105%);transition:transform .25s ease;display:flex;flex-direction:column;}
+.drawer.show{transform:translateX(0);}
+.drawer-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.drawer-head h3{margin:0;font-family:'Playfair Display',serif;color:var(--gold-1);font-size:19px;}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 20px;}
+.drawer-foot{padding:18px 20px;border-top:1px solid var(--line);}
+.close-x{background:none;border:none;color:var(--muted);}
+.close-x svg{width:20px;height:20px;}
+.close-x:hover{color:var(--gold-1);}
+
+.cart-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
+.cart-row .img{width:64px;height:64px;background:#100d0b;flex:none;overflow:hidden;}
+.cart-row .img img{width:100%;height:100%;object-fit:cover;}
+.cart-row .name{font-size:13.5px;margin:0 0 4px;}
+.cart-row .cat{font-size:11px;color:var(--muted);}
+.cart-row .price{font-size:13px;color:var(--gold-1);font-weight:700;margin-top:4px;}
+.qty{display:flex;align-items:center;gap:8px;margin-top:6px;}
+.qty button{width:22px;height:22px;border:1px solid var(--line);background:none;color:var(--cream);}
+.qty span{min-width:18px;text-align:center;font-size:13px;}
+.rm-btn{background:none;border:none;color:var(--muted);font-size:11.5px;margin-top:6px;}
+.rm-btn:hover{color:var(--danger);}
+.cart-total{display:flex;justify-content:space-between;font-size:15px;margin-bottom:14px;}
+.cart-total b{color:var(--gold-1);}
+
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:110;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-bg.show{display:flex;}
+.modal{background:var(--panel);border:1px solid var(--line);max-width:520px;width:100%;max-height:88vh;overflow-y:auto;}
+.modal.wide{max-width:900px;}
+.modal-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.modal-head h3{margin:0;font-family:'Playfair Display',serif;color:var(--gold-1);font-size:19px;}
+.modal-body{padding:22px;}
+
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px;}
+.field input,.field select,.field textarea{
+  width:100%;background:#0f0d0b;border:1px solid var(--line);color:var(--cream);padding:11px 12px;font-size:13.5px;font-family:inherit;border-radius:1px;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold-2);}
+.field textarea{resize:vertical;min-height:70px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hint{font-size:11.5px;color:var(--muted);margin-top:5px;}
+.errbox{background:rgba(193,88,74,.12);border:1px solid rgba(193,88,74,.4);color:#e2a099;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
+.okbox{background:rgba(127,174,122,.12);border:1px solid rgba(127,174,122,.4);color:#bcdab8;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
+.tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:18px;}
+.tabs button{flex:1;background:none;border:none;color:var(--muted);padding:12px;font-size:13.5px;border-bottom:2px solid transparent;}
+.tabs button.active{color:var(--gold-1);border-color:var(--gold-2);}
+
+.pd-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.pd-img{aspect-ratio:1;background:#100d0b;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pd-img img{width:100%;height:100%;object-fit:cover;}
+.pd-cat{color:var(--gold-2);font-size:12px;letter-spacing:.05em;}
+.pd-name{font-family:'Playfair Display',serif;font-size:24px;color:var(--cream);margin:6px 0 14px;}
+.breakdown{border:1px solid var(--line);padding:12px 14px;margin:14px 0;font-size:13px;}
+.breakdown div{display:flex;justify-content:space-between;padding:5px 0;color:var(--muted);}
+.breakdown div.total{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;color:var(--gold-1);font-weight:700;font-size:15px;}
+
+/* auth-required page */
+.locked{text-align:center;padding:80px 20px;color:var(--muted);}
+.locked h2{font-family:'Playfair Display',serif;color:var(--gold-1);font-size:24px;margin-bottom:10px;}
+
+/* admin */
+.admin-shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
+.admin-side{background:#0d0a08;border-left:1px solid var(--line);padding:22px 14px;}
+.admin-side .brand{margin-bottom:26px;padding:0 8px;}
+.admin-nav button{display:block;width:100%;text-align:right;background:none;border:none;color:var(--muted);padding:11px 12px;font-size:13.5px;margin-bottom:3px;border-radius:1px;}
+.admin-nav button.active,.admin-nav button:hover{background:rgba(201,160,76,.1);color:var(--gold-1);}
+.admin-main{padding:28px 32px;}
+.admin-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
+.admin-head h2{font-family:'Playfair Display',serif;color:var(--gold-1);font-size:24px;margin:0;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+th,td{padding:11px 12px;text-align:right;border-bottom:1px solid var(--line);}
+th{color:var(--gold-2);font-weight:600;font-size:12px;}
+td{color:var(--cream);}
+.pill{padding:3px 10px;border-radius:20px;font-size:11px;display:inline-block;}
+.pill.pending_payment{background:rgba(201,160,76,.15);color:var(--gold-1);}
+.pill.processing{background:rgba(127,174,148,.15);color:#7faeae;}
+.pill.shipped{background:rgba(127,174,122,.15);color:var(--ok);}
+.pill.done{background:rgba(127,174,122,.25);color:var(--ok);}
+.pill.canceled{background:rgba(193,88,74,.15);color:var(--danger);}
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:26px;}
+.stat-card{background:var(--panel);border:1px solid var(--line);padding:18px;}
+.stat-card .num{font-size:26px;color:var(--gold-1);font-weight:700;font-family:'Playfair Display',serif;}
+.stat-card .lbl{font-size:12px;color:var(--muted);margin-top:4px;}
+.imgpick{border:1px dashed var(--line);padding:16px;text-align:center;cursor:pointer;color:var(--muted);font-size:12.5px;}
+.imgpick img{max-height:140px;margin:0 auto;}
+.prod-row-img{width:40px;height:40px;object-fit:cover;background:#100d0b;}
+.small-note{font-size:11px;color:var(--muted);}
+.order-detail{background:var(--bg-soft);border:1px solid var(--line);padding:14px;margin-top:8px;font-size:12.5px;}
+.order-detail div{padding:3px 0;}
+
+@media(max-width:900px){
+  .admin-shell{grid-template-columns:1fr;}
+  .admin-side{display:none;}
+  .pd-grid{grid-template-columns:1fr;}
+  .cat-strip{grid-template-columns:1fr;}
+}
+@media(max-width:760px){
+  nav.mega{display:none;}
+  .burger{display:flex;}
+  .row2{grid-template-columns:1fr;}
+}
+.loader-wrap{display:flex;align-items:center;justify-content:center;padding:60px;}
+.spin{width:34px;height:34px;border:2px solid var(--line);border-top-color:var(--gold-2);border-radius:50%;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.toast-wrap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center;}
+.toast{background:#1c1712;border:1px solid var(--gold-2);color:var(--gold-1);padding:11px 20px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:toastin .2s ease;}
+@keyframes toastin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.mmenu{position:fixed;top:0;right:0;height:100%;width:82vw;max-width:340px;background:var(--panel);z-index:120;transform:translateX(105%);transition:transform .25s;overflow-y:auto;border-left:1px solid var(--line);}
+.mmenu.show{transform:translateX(0);}
+.mmenu-head{padding:16px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;}
+.mmenu-sec{padding:10px 18px;}
+.mmenu-sec h4{color:var(--gold-2);font-size:12px;letter-spacing:.1em;margin:14px 0 6px;}
+.mmenu-sec a{display:block;padding:9px 0;font-size:13.5px;color:var(--cream);border-bottom:1px solid rgba(255,255,255,.04);}
+
+.setup-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px;}
+.setup-box{max-width:480px;background:var(--panel);border:1px solid var(--line);padding:30px;text-align:center;}
+.setup-box code{background:#0f0d0b;padding:2px 6px;border-radius:2px;color:var(--gold-1);}
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+<div class="overlay" id="overlay"></div>
+<div class="toast-wrap" id="toasts"></div>
+
+<script>
+/* ===================================================================
+   NOUVELLE GALLERY — frontend, connected to the real backend API
+   (Node.js/Express + MongoDB project delivered alongside this file)
+   =================================================================== */
+
+/* >>> IMPORTANT: قبل از استفاده، این آدرس را با آدرس واقعی بک‌اند خودتان جایگزین کنید <<< */
+const API_BASE = 'http://localhost:4000';
+
+const CATEGORIES = {
+  women: { label:'زنانه', subs:['دستبند زنانه','دستبند فانتزی زنانه','پابند زنانه','آویز زنانه','آویز ساعت زنانه','انگشتر زنانه','گوشواره زنانه','گردنبند زنانه','زنجیر زنانه','النگو زنانه'] },
+  men:   { label:'مردانه', subs:['زنجیر مردانه','دستبند مردانه'] },
+  kids:  { label:'کودکانه', subs:['آویز کودکانه','انگشتر کودکانه','دستبند کودکانه','زنجیر کودکانه','گردنبند کودکانه','گوشواره کودکانه'] },
+};
+
+const FAQS = [
+  { q:'عیار طلاهای گالری نوول چند است؟', a:'تمام محصولات گالری نوول از طلای ۱۸ عیار (۷۵۰) ساخته می‌شوند که استاندارد اصلی طلای زینتی در ایران است و روی هر قطعه مهر عیار حک شده است.' },
+  { q:'قیمت هر محصول چگونه محاسبه می‌شود؟', a:'قیمت نهایی از مجموع (قیمت روز طلای ۱۸ عیار × وزن قطعه)، اجرت ساخت، ۷٪ سود فروشنده و ۱۰٪ مالیات بر اجرت و سود به‌دست می‌آید. این قیمت به‌صورت شفاف در صفحه هر محصول نمایش داده می‌شود.' },
+  { q:'روش‌های ارسال و زمان تحویل چگونه است؟', a:'سفارش‌ها پس از تایید و ثبت پرداخت، طی ۲ تا ۵ روز کاری از طریق پست پیشتاز و با بیمه کامل محموله ارسال می‌شوند.' },
+  { q:'آیا امکان مرجوع کردن کالا وجود دارد؟', a:'در صورتی که محصول دارای ایراد ساخت باشد یا مطابق سفارش شما نباشد، تا ۷۲ ساعت پس از دریافت امکان مرجوعی و تعویض وجود دارد.' },
+  { q:'اصالت طلا چگونه تضمین می‌شود؟', a:'هر قطعه همراه با برگه اصالت و ضمانت گالری نوول ارسال می‌شود و امکان استعلام عیار در آزمایشگاه‌های معتبر برای مشتری فراهم است.' },
+  { q:'چطور می‌توانم وضعیت سفارشم را پیگیری کنم؟', a:'پس از ورود به حساب کاربری خود، از بخش «سفارش‌های من» می‌توانید وضعیت لحظه‌ای هر سفارش را مشاهده کنید.' },
+];
+
+/* ---------------- API helper ---------------- */
+function getToken(){ return localStorage.getItem('nouvelle_token'); }
+function setToken(t){ localStorage.setItem('nouvelle_token', t); }
+function clearToken(){ localStorage.removeItem('nouvelle_token'); }
+
+async function api(path, { method='GET', body=null, auth=false, isForm=false } = {}){
+  const headers = {};
+  if(!isForm) headers['Content-Type'] = 'application/json';
+  if(auth){ const t = getToken(); if(t) headers['Authorization'] = 'Bearer '+t; }
+
+  let res;
+  try{
+    res = await fetch(API_BASE + path, {
+      method, headers,
+      body: body ? (isForm ? body : JSON.stringify(body)) : undefined,
+    });
+  }catch(e){
+    throw new Error('اتصال به سرور برقرار نشد. مطمئن شوید بک‌اند در حال اجراست و آدرس API_BASE درست تنظیم شده.');
+  }
+  let data = null;
+  try{ data = await res.json(); }catch(e){}
+  if(!res.ok){ throw new Error((data && data.message) || 'خطای ارتباط با سرور'); }
+  return data;
+}
+
+function imgUrl(path){
+  if(!path) return null;
+  return path.startsWith('http') ? path : API_BASE + path;
+}
+
+function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,8); }
+function toman(n){ return Math.round(n||0).toLocaleString('fa-IR'); }
+function toast(msg){
+  const t=document.createElement('div'); t.className='toast'; t.textContent=msg;
+  document.getElementById('toasts').appendChild(t);
+  setTimeout(()=>t.remove(), 2800);
+}
+
+/* ---------------- pricing formula (mirrors backend utils/pricing.js) ---------------- */
+function calcPrice(weight, laborFee, goldPricePerGram){
+  weight = Number(weight)||0; laborFee = Number(laborFee)||0; goldPricePerGram = Number(goldPricePerGram)||0;
+  const goldValue = goldPricePerGram * weight;
+  const profit = (goldValue + laborFee) * 0.07;
+  const tax = (laborFee + profit) * 0.10;
+  const total = goldValue + laborFee + profit + tax;
+  return { goldValue, laborFee, profit, tax, total };
+}
+
+/* ---------------- app state ---------------- */
+const State = {
+  goldPrice: 0,
+  products: [],
+  currentUser: JSON.parse(localStorage.getItem('nouvelle_user') || 'null'),
+  cart: JSON.parse(localStorage.getItem('nouvelle_cart') || '[]'),
+  backendOk: true,
+};
+
+function saveCart(){ localStorage.setItem('nouvelle_cart', JSON.stringify(State.cart)); }
+function saveUser(u){ State.currentUser = u; localStorage.setItem('nouvelle_user', JSON.stringify(u)); }
+function clearUser(){ State.currentUser = null; localStorage.removeItem('nouvelle_user'); clearToken(); }
+
+/* ---------------- data bootstrap ---------------- */
+async function loadGoldPrice(){
+  const r = await api('/api/products/meta/gold-price');
+  State.goldPrice = r.price || 0;
+}
+async function loadProducts(){
+  const r = await api('/api/products');
+  State.products = (r.products || []).map(p => ({ ...p, id: p._id }));
+}
+async function restoreSession(){
+  if(!getToken()) return;
+  try{
+    const r = await api('/api/auth/me', { auth:true });
+    saveUser(r.user);
+  }catch(e){
+    clearUser();
+  }
+}
+
+/* ---------------- router ---------------- */
+window.addEventListener('hashchange', ()=>{ render(); });
+function go(hash){ location.hash = hash; }
+
+/* ---------------- render root ---------------- */
+async function render(){
+  const app = document.getElementById('app');
+  const route = (location.hash || '#/').replace(/^#/, '');
+
+  if(route.startsWith('/admin')){
+    app.innerHTML = renderAdmin(route);
+    bindAdminEvents(route);
+    return;
+  }
+
+  app.innerHTML = `
+    ${Header()}
+    <main id="main">${await Page(route)}</main>
+    ${Footer()}
+  `;
+  bindGlobalEvents();
+  bindPageEvents(route);
+}
+
+/* ---------------- header ---------------- */
+function svgLogo(){
+  return `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="55" r="34" stroke="url(#g1)" stroke-width="3"/>
+    <path d="M38 20 L50 8 L62 20 L50 30 Z" fill="url(#g1)"/>
+    <path d="M38 20 L62 20 L50 30 Z" fill="#8a6a2a"/>
+    <text x="50" y="70" font-family="Playfair Display, serif" font-size="46" font-style="italic" font-weight="700" fill="url(#g1)" text-anchor="middle">N</text>
+    <defs><linearGradient id="g1" x1="0" y1="0" x2="100" y2="100">
+      <stop offset="0" stop-color="#f2d78a"/><stop offset="1" stop-color="#9c7a34"/>
+    </linearGradient></defs>
+  </svg>`;
+}
+function svgLogoInner(){ return `<circle cx="50" cy="55" r="34" stroke="#6b5527" stroke-width="3"/><text x="50" y="70" font-family="Playfair Display, serif" font-size="46" font-style="italic" font-weight="700" fill="#6b5527" text-anchor="middle">N</text>`; }
+function svgLogoInnerGold(){ return `<circle cx="50" cy="55" r="34" stroke="url(#hg)" stroke-width="3"/><path d="M38 20 L50 8 L62 20 L50 30 Z" fill="url(#hg)"/><defs><linearGradient id="hg" x1="0" y1="0" x2="100" y2="100"><stop offset="0" stop-color="#f2d78a"/><stop offset="1" stop-color="#9c7a34"/></linearGradient></defs>`; }
+
+function Header(){
+  const cartCount = State.cart.reduce((s,i)=>s+i.qty,0);
+  const megaHtml = Object.entries(CATEGORIES).map(([key,c])=>`
+    <div class="mega-item" data-mega="${key}">
+      <button type="button">${c.label}
+        <svg viewBox="0 0 12 8" fill="none"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.5"/></svg>
+      </button>
+      <div class="mega-panel">
+        ${c.subs.map(s=>`<a href="#/category/${key}?sub=${encodeURIComponent(s)}">${s}</a>`).join('')}
+        <a href="#/category/${key}" style="color:var(--gold-2);border-top:1px solid var(--line);margin-top:6px;padding-top:10px;">مشاهده همه ${c.label}</a>
+      </div>
+    </div>`).join('');
+
+  return `
+  <div class="topbar">
+    <div class="topbar-in">
+      <div class="gold-ticker"><span class="dot"></span><span class="lbl">قیمت لحظه‌ای طلای ۱۸ عیار:</span> ${toman(State.goldPrice)} تومان / گرم</div>
+      <div class="topbar-links">
+        ${State.currentUser ? `<button data-nav="#/account">حساب کاربری: ${State.currentUser.fullname||State.currentUser.username}</button><button id="logoutBtn">خروج</button>`
+          : `<button id="openAuth">ورود / ثبت‌نام</button>`}
+        <button data-nav="#/admin">پنل مدیریت</button>
+      </div>
+    </div>
+  </div>
+  <header class="site">
+    <div class="header-in">
+      <a href="#/" class="brand">${svgLogo()}<div><div class="word">Nouvelle</div><div class="sub">GALLERY طلا</div></div></a>
+      <nav class="mega">${megaHtml}</nav>
+      <div class="header-actions">
+        <button class="icon-btn" id="openAuthIcon" title="حساب کاربری">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20c1.6-3.6 4.8-5.5 8-5.5s6.4 1.9 8 5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn" id="openCart" title="سبد خرید">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16l-1.5 11a2 2 0 01-2 1.7H7.5a2 2 0 01-2-1.7L4 7z" stroke="currentColor" stroke-width="1.6"/><path d="M8 7a4 4 0 018 0" stroke="currentColor" stroke-width="1.6"/></svg>
+          ${cartCount>0?`<span class="badge">${cartCount}</span>`:''}
+        </button>
+        <button class="burger" id="openMobileMenu">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="mmenu" id="mmenu">
+    <div class="mmenu-head"><div class="word disp" style="color:var(--gold-1);font-style:italic;">Nouvelle</div><button class="close-x" id="closeMmenu"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+    ${Object.entries(CATEGORIES).map(([key,c])=>`
+      <div class="mmenu-sec"><h4>${c.label}</h4>
+        ${c.subs.map(s=>`<a href="#/category/${key}?sub=${encodeURIComponent(s)}">${s}</a>`).join('')}
+      </div>`).join('')}
+  </div>
+  `;
+}
+
+function Footer(){
+  return `
+  <footer>
+    <div class="wrap section">
+      <div class="section-head"><div><span class="eyebrow">پرسش‌های پرتکرار</span><h2>سوالات متداول</h2></div></div>
+      <div id="faqList">
+        ${FAQS.map((f,i)=>`
+          <div class="faq-item" data-i="${i}">
+            <button class="faq-q">${f.q}<svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+            <div class="faq-a"><div style="padding-top:2px">${f.a}</div></div>
+          </div>`).join('')}
+      </div>
+    </div>
+    <div class="foot-bottom">© ${new Date().getFullYear()} Nouvelle Gallery — گالری طلای نوول. تمام حقوق محفوظ است.</div>
+  </footer>`;
+}
+
+/* ---------------- pages ---------------- */
+async function Page(route){
+  if(route==='' || route==='/') return HomePage();
+  if(route.startsWith('/category/')) return CategoryPage(route);
+  if(route.startsWith('/product/')) return ProductPage(route);
+  if(route==='/account') return AccountPage();
+  if(route==='/checkout') return CheckoutPage();
+  if(route.startsWith('/checkout-result')) return CheckoutResultPage(route);
+  return HomePage();
+}
+
+function productCardHTML(p){
+  const imgHtml = p.image ? `<img src="${imgUrl(p.image)}" alt="${p.name}">` : `<svg class="ph" viewBox="0 0 100 100" fill="none">${svgLogoInner()}</svg>`;
+  return `
+  <div class="pcard" data-nav="#/product/${p.id}">
+    <div class="img">${imgHtml}</div>
+    <div class="info">
+      <div class="cat">${p.subcategory}</div>
+      <div class="name">${p.name}</div>
+      <div class="price">${toman(p.price)} <small>تومان</small></div>
+      <div class="weight">وزن: ${p.weight} گرم</div>
+    </div>
+  </div>`;
+}
+
+function HomePage(){
+  const latest = State.products.slice(0,8);
+  return `
+  <section class="hero">
+    <svg class="hero-ring" viewBox="0 0 100 100" fill="none">${svgLogoInnerGold()}</svg>
+    <h1 class="disp">جواهری برای لحظه‌های ماندگار</h1>
+    <p>گالری نوول؛ طلای ۱۸ عیار با طراحی امروزی و قیمت‌گذاری شفاف — هر قطعه با محاسبه دقیق وزن، اجرت، سود و مالیات، همان‌طور که مشاهده می‌کنید.</p>
+    <div class="hero-cta">
+      <a class="btn solid" href="#/category/women">مشاهده مجموعه زنانه</a>
+      <a class="btn ghost" href="#/category/men">مجموعه مردانه</a>
+    </div>
+  </section>
+  <div class="wrap section">
+    <div class="section-head"><div><span class="eyebrow">دسته‌بندی‌ها</span><h2>مجموعه‌ها</h2></div></div>
+    <div class="cat-strip">
+      ${Object.entries(CATEGORIES).map(([key,c])=>`
+        <a class="cat-card" href="#/category/${key}"><div><h3>${c.label}</h3><span>${c.subs.length} زیرشاخه</span></div></a>
+      `).join('')}
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="wrap section">
+    <div class="section-head"><div><span class="eyebrow">تازه‌ها</span><h2>جدیدترین محصولات</h2></div>
+      <a class="btn sm ghost" href="#/category/women">مشاهده همه</a>
+    </div>
+    <div class="grid">
+      ${latest.length ? latest.map(productCardHTML).join('') : `<div class="empty">هنوز محصولی ثبت نشده است. از پنل مدیریت محصول اضافه کنید.</div>`}
+    </div>
+  </div>`;
+}
+
+function CategoryPage(route){
+  const [path, qs] = route.split('?');
+  const key = path.split('/')[2];
+  const params = new URLSearchParams(qs||'');
+  const sub = params.get('sub');
+  const cat = CATEGORIES[key];
+  if(!cat) return `<div class="wrap section"><div class="empty">دسته‌بندی یافت نشد.</div></div>`;
+  let list = State.products.filter(p=>p.category===key);
+  if(sub) list = list.filter(p=>p.subcategory===sub);
+  return `
+  <div class="wrap section">
+    <div class="section-head">
+      <div><span class="eyebrow">${cat.label}</span><h2>${sub || 'همه محصولات ' + cat.label}</h2></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;">
+      <a class="btn sm ${!sub?'solid':'ghost'}" href="#/category/${key}">همه</a>
+      ${cat.subs.map(s=>`<a class="btn sm ${sub===s?'solid':'ghost'}" href="#/category/${key}?sub=${encodeURIComponent(s)}">${s}</a>`).join('')}
+    </div>
+    <div class="grid">
+      ${list.length ? list.map(productCardHTML).join('') : `<div class="empty">محصولی در این دسته ثبت نشده است.</div>`}
+    </div>
+  </div>`;
+}
+
+function ProductPage(route){
+  const id = route.split('/')[2];
+  const p = State.products.find(x=>x.id===id);
+  if(!p) return `<div class="wrap section"><div class="empty">محصول یافت نشد.</div></div>`;
+  const goldValue = p.weight * (p.goldPriceAtCreation || State.goldPrice);
+  const imgHtml = p.image ? `<img src="${imgUrl(p.image)}" alt="${p.name}">` : `<svg style="width:45%;" viewBox="0 0 100 100" fill="none">${svgLogoInner()}</svg>`;
+  return `
+  <div class="wrap section">
+    <div class="pd-grid">
+      <div class="pd-img">${imgHtml}</div>
+      <div>
+        <div class="pd-cat">${p.subcategory}</div>
+        <div class="pd-name disp">${p.name}</div>
+        <div class="small-note">وزن: ${p.weight} گرم</div>
+        <div class="breakdown">
+          <div><span>قیمت طلا (وزن × نرخ روز)</span><span>${toman(goldValue)} تومان</span></div>
+          <div><span>اجرت ساخت</span><span>${toman(p.laborFee)} تومان</span></div>
+          <div><span>سود (۷٪)</span><span>${toman(p.profit)} تومان</span></div>
+          <div><span>مالیات (۱۰٪)</span><span>${toman(p.tax)} تومان</span></div>
+          <div class="total"><span>قیمت نهایی</span><span>${toman(p.price)} تومان</span></div>
+        </div>
+        <div style="display:flex;gap:12px;align-items:center;margin-top:16px;">
+          <button class="btn solid" id="addToCartBtn" data-id="${p.id}">افزودن به سبد خرید</button>
+          <a class="btn ghost" href="#/category/${p.category}">بازگشت به مجموعه</a>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function AccountPage(){
+  if(!State.currentUser) return `<div class="wrap"><div class="locked"><h2>ورود به حساب کاربری</h2><p>برای مشاهده سفارش‌های خود ابتدا وارد شوید.</p><button class="btn solid" id="openAuthLocked" style="margin-top:16px;">ورود / ثبت‌نام</button></div></div>`;
+  return `
+  <div class="wrap section">
+    <div class="section-head"><div><span class="eyebrow">حساب کاربری</span><h2>${State.currentUser.fullname||State.currentUser.username}</h2></div></div>
+    <div class="row2" style="max-width:760px;">
+      <div class="field"><label>نام و نام خانوادگی</label><input id="accFullname" value="${State.currentUser.fullname||''}"></div>
+      <div class="field"><label>شماره تماس</label><input id="accPhone" value="${State.currentUser.phone||''}"></div>
+    </div>
+    <div class="field" style="max-width:760px;"><label>آدرس پیش‌فرض</label><textarea id="accAddress">${State.currentUser.address||''}</textarea></div>
+    <button class="btn solid sm" id="saveProfileBtn">ذخیره اطلاعات</button>
+    <div class="divider" style="margin:34px 0;"></div>
+    <h3 class="disp" style="color:var(--gold-1);font-size:20px;">سفارش‌های من</h3>
+    <div id="userOrdersWrap" style="margin-top:16px;">
+      <div class="loader-wrap"><div class="spin"></div></div>
+    </div>
+  </div>`;
+}
+
+function CheckoutPage(){
+  if(!State.currentUser) return `<div class="wrap"><div class="locked"><h2>برای ثبت سفارش وارد شوید</h2><p>برای تکمیل خرید، ابتدا باید در سایت ثبت‌نام یا وارد شوید.</p><button class="btn solid" id="openAuthLocked" style="margin-top:16px;">ورود / ثبت‌نام</button></div></div>`;
+  if(State.cart.length===0) return `<div class="wrap"><div class="locked"><h2>سبد خرید شما خالی است</h2><a class="btn solid" href="#/" style="margin-top:16px;">مشاهده محصولات</a></div></div>`;
+  const items = State.cart.map(ci=>({...ci, p: State.products.find(p=>p.id===ci.productId)})).filter(x=>x.p);
+  const total = items.reduce((s,x)=>s + x.p.price*x.qty, 0);
+  return `
+  <div class="wrap section">
+    <div class="section-head"><div><span class="eyebrow">نهایی‌سازی</span><h2>ثبت سفارش</h2></div></div>
+    <div class="pd-grid">
+      <div>
+        <div class="field"><label>نام و نام خانوادگی گیرنده</label><input id="coFullname" value="${State.currentUser.fullname||''}"></div>
+        <div class="field"><label>شماره تماس</label><input id="coPhone" value="${State.currentUser.phone||''}"></div>
+        <div class="field"><label>آدرس کامل پستی</label><textarea id="coAddress">${State.currentUser.address||''}</textarea></div>
+        <div id="checkoutErr"></div>
+        <button class="btn solid block" id="placeOrderBtn">پرداخت و ثبت نهایی سفارش</button>
+        <p class="hint">* در صورت تنظیم‌بودن مرچنت زرین‌پال در بک‌اند، به درگاه واقعی منتقل می‌شوید.</p>
+      </div>
+      <div>
+        <div class="breakdown">
+          ${items.map(x=>`<div><span>${x.p.name} × ${x.qty}</span><span>${toman(x.p.price*x.qty)} تومان</span></div>`).join('')}
+          <div class="total"><span>مبلغ قابل پرداخت</span><span>${toman(total)} تومان</span></div>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function CheckoutResultPage(route){
+  const qs = route.split('?')[1] || '';
+  const params = new URLSearchParams(qs);
+  const status = params.get('status');
+  const refId = params.get('refId');
+  const map = {
+    success: { title:'پرداخت با موفقیت انجام شد', icon:'✓', desc: refId ? `کد رهگیری تراکنش: ${refId}` : 'سفارش شما ثبت شد.' },
+    failed:  { title:'پرداخت ناموفق بود', icon:'✕', desc:'در صورت کسر وجه، مبلغ طی ۷۲ ساعت به حساب شما بازمی‌گردد.' },
+    canceled:{ title:'پرداخت لغو شد', icon:'—', desc:'می‌توانید دوباره تلاش کنید.' },
+    error:   { title:'خطایی رخ داد', icon:'!', desc:'لطفا از بخش سفارش‌های من وضعیت را بررسی کنید.' },
+  };
+  const info = map[status] || map.error;
+  return `
+  <div class="wrap"><div class="locked">
+    <div style="font-size:40px;color:var(--gold-1);margin-bottom:10px;">${info.icon}</div>
+    <h2>${info.title}</h2>
+    <p>${info.desc}</p>
+    <a class="btn solid" href="#/account" style="margin-top:16px;">مشاهده سفارش‌های من</a>
+  </div></div>`;
+}
+
+/* ---------------- events: global (header/footer/drawers) ---------------- */
+function bindGlobalEvents(){
+  document.querySelectorAll('[data-nav]').forEach(el=>{
+    el.addEventListener('click', e=>{ e.preventDefault(); go(el.getAttribute('data-nav')); });
+  });
+
+  document.querySelectorAll('.mega-item').forEach(mi=>{
+    mi.addEventListener('mouseenter', ()=>mi.classList.add('open'));
+    mi.addEventListener('mouseleave', ()=>mi.classList.remove('open'));
+    mi.querySelector('button').addEventListener('click', ()=>{
+      document.querySelectorAll('.mega-item').forEach(x=>{if(x!==mi)x.classList.remove('open');});
+      mi.classList.toggle('open');
+    });
+  });
+
+  document.querySelectorAll('.faq-item').forEach(it=>{
+    it.querySelector('.faq-q').addEventListener('click', ()=>it.classList.toggle('open'));
+  });
+
+  const mmenu = document.getElementById('mmenu');
+  document.getElementById('openMobileMenu')?.addEventListener('click', ()=>{ mmenu.classList.add('show'); document.getElementById('overlay').classList.add('show'); });
+  document.getElementById('closeMmenu')?.addEventListener('click', closeAllOverlays);
+  document.getElementById('overlay').addEventListener('click', closeAllOverlays);
+
+  document.getElementById('openAuth')?.addEventListener('click', openAuthModal);
+  document.getElementById('openAuthIcon')?.addEventListener('click', ()=>{
+    if(State.currentUser) go('#/account'); else openAuthModal();
+  });
+  document.getElementById('logoutBtn')?.addEventListener('click', ()=>{
+    clearUser();
+    toast('از حساب خارج شدید');
+    render();
+  });
+
+  document.getElementById('openCart')?.addEventListener('click', openCartDrawer);
+
+  document.querySelectorAll('.pcard').forEach(c=>{
+    c.addEventListener('click', ()=> go(c.getAttribute('data-nav')));
+  });
+}
+
+function closeAllOverlays(){
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('mmenu')?.classList.remove('show');
+  document.getElementById('cartDrawer')?.classList.remove('show');
+  document.querySelectorAll('.modal-bg').forEach(m=>m.remove());
+}
+
+async function bindPageEvents(route){
+  document.getElementById('addToCartBtn')?.addEventListener('click', (e)=>{
+    addToCart(e.target.getAttribute('data-id'));
+  });
+  document.getElementById('openAuthLocked')?.addEventListener('click', openAuthModal);
+
+  if(route==='/account' && State.currentUser){
+    document.getElementById('saveProfileBtn')?.addEventListener('click', async ()=>{
+      try{
+        const r = await api('/api/auth/me', { method:'PUT', auth:true, body:{
+          fullname: document.getElementById('accFullname').value.trim(),
+          phone: document.getElementById('accPhone').value.trim(),
+          address: document.getElementById('accAddress').value.trim(),
+        }});
+        saveUser(r.user);
+        toast('اطلاعات ذخیره شد');
+        render();
+      }catch(err){ toast(err.message); }
+    });
+    loadUserOrders();
+  }
+
+  if(route==='/checkout' && State.currentUser){
+    document.getElementById('placeOrderBtn')?.addEventListener('click', placeOrder);
+  }
+}
+
+async function loadUserOrders(){
+  const wrap = document.getElementById('userOrdersWrap');
+  if(!wrap) return;
+  try{
+    const r = await api('/api/orders/mine', { auth:true });
+    const statusFa = {pending_payment:'در انتظار پرداخت', processing:'در حال آماده‌سازی', shipped:'ارسال شده', done:'تحویل شده', canceled:'لغو شده'};
+    if(!r.orders.length){ wrap.innerHTML = `<div class="empty">هنوز سفارشی ثبت نکرده‌اید.</div>`; return; }
+    wrap.innerHTML = r.orders.map(o=>`
+      <div class="order-detail">
+        <div><b style="color:var(--gold-1)">سفارش #${o._id.slice(-6)}</b> — <span class="pill ${o.status}">${statusFa[o.status]||o.status}</span></div>
+        <div>تاریخ: ${new Date(o.createdAt).toLocaleDateString('fa-IR')}</div>
+        <div>اقلام: ${o.items.map(i=>i.name+' × '+i.qty).join('، ')}</div>
+        <div>مبلغ کل: ${toman(o.total)} تومان</div>
+      </div>`).join('');
+  }catch(err){
+    wrap.innerHTML = `<div class="errbox">${err.message}</div>`;
+  }
+}
+
+async function placeOrder(){
+  const fullname = document.getElementById('coFullname').value.trim();
+  const phone = document.getElementById('coPhone').value.trim();
+  const address = document.getElementById('coAddress').value.trim();
+  const errBox = document.getElementById('checkoutErr');
+  errBox.innerHTML = '';
+  if(!fullname || !phone || !address){
+    errBox.innerHTML = `<div class="errbox">لطفا نام، شماره تماس و آدرس را کامل وارد کنید.</div>`; return;
+  }
+  const btn = document.getElementById('placeOrderBtn');
+  btn.disabled = true; btn.textContent = 'در حال ثبت سفارش...';
+  try{
+    const items = State.cart.map(ci=>({ productId: ci.productId, qty: ci.qty }));
+    const r = await api('/api/orders', { method:'POST', auth:true, body:{ items, fullname, phone, address } });
+    State.cart = []; saveCart();
+    if(r.payment && r.payment.paymentUrl){
+      toast('در حال انتقال به درگاه پرداخت...');
+      window.location.href = r.payment.paymentUrl;
+      return;
+    }
+    toast(r.warning ? 'سفارش ثبت شد (درگاه پرداخت متصل نیست)' : 'سفارش با موفقیت ثبت شد');
+    go('#/account');
+  }catch(err){
+    errBox.innerHTML = `<div class="errbox">${err.message}</div>`;
+  }finally{
+    btn.disabled = false; btn.textContent = 'پرداخت و ثبت نهایی سفارش';
+  }
+}
+
+/* ---------------- cart (client-side, synced to localStorage) ---------------- */
+function addToCart(productId){
+  const existing = State.cart.find(c=>c.productId===productId);
+  if(existing) existing.qty += 1; else State.cart.push({productId, qty:1});
+  saveCart();
+  toast('به سبد خرید اضافه شد');
+  render();
+  setTimeout(openCartDrawer, 60);
+}
+function changeQty(productId, delta){
+  const c = State.cart.find(c=>c.productId===productId);
+  if(!c) return;
+  c.qty += delta;
+  if(c.qty<=0) State.cart = State.cart.filter(x=>x.productId!==productId);
+  saveCart();
+  renderCartDrawer();
+  renderHeaderBadgeOnly();
+}
+function renderHeaderBadgeOnly(){
+  const cartCount = State.cart.reduce((s,i)=>s+i.qty,0);
+  const badge = document.querySelector('#openCart .badge');
+  if(cartCount>0){
+    if(badge) badge.textContent = cartCount;
+    else document.getElementById('openCart').insertAdjacentHTML('beforeend', `<span class="badge">${cartCount}</span>`);
+  } else if(badge) badge.remove();
+}
+
+function openCartDrawer(){
+  let d = document.getElementById('cartDrawer');
+  if(!d){
+    d = document.createElement('div');
+    d.id = 'cartDrawer'; d.className='drawer';
+    document.body.appendChild(d);
+  }
+  renderCartDrawer();
+  document.getElementById('overlay').classList.add('show');
+  requestAnimationFrame(()=>d.classList.add('show'));
+}
+function renderCartDrawer(){
+  const d = document.getElementById('cartDrawer');
+  if(!d) return;
+  const items = State.cart.map(ci=>({...ci, p: State.products.find(p=>p.id===ci.productId)})).filter(x=>x.p);
+  const total = items.reduce((s,x)=>s + x.p.price*x.qty, 0);
+  d.innerHTML = `
+    <div class="drawer-head"><h3>سبد خرید</h3><button class="close-x" id="closeCart"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+    <div class="drawer-body">
+      ${items.length? items.map(x=>`
+        <div class="cart-row">
+          <div class="img">${x.p.image?`<img src="${imgUrl(x.p.image)}">`:`<svg style="width:100%;height:100%;padding:8px" viewBox="0 0 100 100">${svgLogoInner()}</svg>`}</div>
+          <div style="flex:1;">
+            <div class="name">${x.p.name}</div>
+            <div class="cat">${x.p.subcategory}</div>
+            <div class="price">${toman(x.p.price*x.qty)} تومان</div>
+            <div class="qty">
+              <button data-qty="-1" data-id="${x.p.id}">−</button><span>${x.qty}</span><button data-qty="1" data-id="${x.p.id}">+</button>
+            </div>
+            <button class="rm-btn" data-rm="${x.p.id}">حذف</button>
+          </div>
+        </div>`).join('') : `<div class="empty">سبد خرید شما خالی است.</div>`}
+    </div>
+    <div class="drawer-foot">
+      <div class="cart-total"><span>جمع کل</span><b>${toman(total)} تومان</b></div>
+      <button class="btn solid block" id="goCheckout" ${items.length===0?'disabled':''}>ادامه فرآیند خرید</button>
+    </div>`;
+  document.getElementById('closeCart').addEventListener('click', closeAllOverlays);
+  d.querySelectorAll('[data-qty]').forEach(b=>b.addEventListener('click', ()=>changeQty(b.getAttribute('data-id'), Number(b.getAttribute('data-qty')))));
+  d.querySelectorAll('[data-rm]').forEach(b=>b.addEventListener('click', ()=>{
+    State.cart = State.cart.filter(c=>c.productId!==b.getAttribute('data-rm'));
+    saveCart(); renderCartDrawer(); renderHeaderBadgeOnly();
+  }));
+  document.getElementById('goCheckout').addEventListener('click', ()=>{
+    closeAllOverlays();
+    if(!State.currentUser){ openAuthModal(); return; }
+    go('#/checkout');
+  });
+}
+
+/* ---------------- auth modal ---------------- */
+function openAuthModal(){
+  const bg = document.createElement('div');
+  bg.className='modal-bg show';
+  bg.innerHTML = `
+    <div class="modal">
+      <div class="modal-head"><h3>ورود / ثبت‌نام</h3><button class="close-x" id="authClose"><svg viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6"/></svg></button></div>
+      <div class="modal-body">
+        <div class="tabs"><button class="active" data-tab="login">ورود</button><button data-tab="register">ثبت‌نام</button></div>
+        <div id="authErr"></div>
+        <div id="loginForm">
+          <div class="field"><label>نام کاربری</label><input id="loginUser"></div>
+          <div class="field"><label>رمز عبور</label><input type="password" id="loginPass"></div>
+          <button class="btn solid block" id="loginBtn">ورود به حساب</button>
+        </div>
+        <div id="registerForm" style="display:none;">
+          <div class="field"><label>نام و نام خانوادگی</label><input id="regFullname"></div>
+          <div class="field"><label>نام کاربری</label><input id="regUser"></div>
+          <div class="field"><label>شماره تماس</label><input id="regPhone"></div>
+          <div class="field"><label>رمز عبور (حداقل ۶ کاراکتر)</label><input type="password" id="regPass"></div>
+          <button class="btn solid block" id="registerBtn">ایجاد حساب</button>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(bg);
+  document.getElementById('overlay').classList.add('show');
+  bg.querySelector('#authClose').addEventListener('click', ()=>{ bg.remove(); document.getElementById('overlay').classList.remove('show'); });
+  bg.addEventListener('click', (e)=>{ if(e.target===bg){ bg.remove(); document.getElementById('overlay').classList.remove('show'); } });
+
+  bg.querySelectorAll('.tabs button').forEach(t=>t.addEventListener('click', ()=>{
+    bg.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    const isLogin = t.getAttribute('data-tab')==='login';
+    bg.querySelector('#loginForm').style.display = isLogin?'block':'none';
+    bg.querySelector('#registerForm').style.display = isLogin?'none':'block';
+    bg.querySelector('#authErr').innerHTML='';
+  }));
+
+  bg.querySelector('#loginBtn').addEventListener('click', async ()=>{
+    const u = bg.querySelector('#loginUser').value.trim();
+    const p = bg.querySelector('#loginPass').value;
+    const errEl = bg.querySelector('#authErr');
+    if(!u||!p){ errEl.innerHTML=`<div class="errbox">نام کاربری و رمز عبور را وارد کنید.</div>`; return; }
+    try{
+      const r = await api('/api/auth/login', { method:'POST', body:{ username:u, password:p } });
+      setToken(r.token); saveUser(r.user);
+      bg.remove(); document.getElementById('overlay').classList.remove('show');
+      toast('خوش آمدید '+(r.user.fullname||r.user.username));
+      render();
+    }catch(err){ errEl.innerHTML = `<div class="errbox">${err.message}</div>`; }
+  });
+
+  bg.querySelector('#registerBtn').addEventListener('click', async ()=>{
+    const fullname = bg.querySelector('#regFullname').value.trim();
+    const u = bg.querySelector('#regUser').value.trim();
+    const phone = bg.querySelector('#regPhone').value.trim();
+    const p = bg.querySelector('#regPass').value;
+    const errEl = bg.querySelector('#authErr');
+    if(!fullname||!u||!phone||!p){ errEl.innerHTML=`<div class="errbox">تمام فیلدها الزامی هستند.</div>`; return; }
+    try{
+      const r = await api('/api/auth/register', { method:'POST', body:{ username:u, password:p, fullname, phone } });
+      setToken(r.token); saveUser(r.user);
+      bg.remove(); document.getElementById('overlay').classList.remove('show');
+      toast('ثبت‌نام با موفقیت انجام شد');
+      render();
+    }catch(err){ errEl.innerHTML = `<div class="errbox">${err.message}</div>`; }
+  });
+}
+
+/* =====================================================================
+   ADMIN PANEL
+   ===================================================================== */
+const AdminState = { section:'orders' };
+
+function isAdminUser(){ return State.currentUser && State.currentUser.role === 'admin'; }
+
+function renderAdmin(route){
+  if(!isAdminUser()){
+    return `
+    <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;">
+      <div style="max-width:380px;width:100%;background:var(--panel);border:1px solid var(--line);padding:30px;">
+        <div style="text-align:center;margin-bottom:20px;">${svgLogo()}<div class="disp" style="color:var(--gold-1);font-size:20px;margin-top:8px;">پنل مدیریت نوول</div></div>
+        <div id="adminErr"></div>
+        <div class="field"><label>نام کاربری</label><input id="adUser"></div>
+        <div class="field"><label>رمز عبور</label><input type="password" id="adPass"></div>
+        <button class="btn solid block" id="adminLoginBtn">ورود به پنل</button>
+        <a class="btn ghost block" href="#/" style="margin-top:10px;">بازگشت به سایت</a>
+      </div>
+    </div>`;
+  }
+  const section = route.split('/')[2] || 'orders';
+  AdminState.section = section;
+  const navItem = (key,label) => `<button data-asec="${key}" class="${section===key?'active':''}">${label}</button>`;
+  return `
+  <div class="admin-shell">
+    <aside class="admin-side">
+      <div class="brand" style="display:flex;align-items:center;gap:8px;"><div style="width:30px">${svgLogo()}</div><div class="word" style="color:var(--gold-1);font-size:18px;">Nouvelle</div></div>
+      <nav class="admin-nav">
+        ${navItem('orders','سفارش‌ها')}
+        ${navItem('products','محصولات')}
+        ${navItem('add','افزودن محصول')}
+        ${navItem('price','قیمت طلا')}
+      </nav>
+      <div style="margin-top:30px;">
+        <a class="btn ghost sm block" href="#/">مشاهده سایت</a>
+        <button class="btn danger sm block" id="adminLogoutBtn" style="margin-top:8px;">خروج از پنل</button>
+      </div>
+    </aside>
+    <main class="admin-main" id="adminMain">
+      <div class="loader-wrap"><div class="spin"></div></div>
+    </main>
+  </div>`;
+}
+
+function bindAdminEvents(route){
+  if(!isAdminUser()){
+    document.getElementById('adminLoginBtn')?.addEventListener('click', async ()=>{
+      const u = document.getElementById('adUser').value.trim();
+      const p = document.getElementById('adPass').value;
+      const errEl = document.getElementById('adminErr');
+      try{
+        const r = await api('/api/auth/login', { method:'POST', body:{ username:u, password:p } });
+        if(r.user.role !== 'admin'){ errEl.innerHTML = `<div class="errbox">این حساب دسترسی مدیریت ندارد.</div>`; return; }
+        setToken(r.token); saveUser(r.user);
+        go('#/admin/orders'); render();
+      }catch(err){ errEl.innerHTML = `<div class="errbox">${err.message}</div>`; }
+    });
+    return;
+  }
+  document.querySelectorAll('[data-asec]').forEach(b=>b.addEventListener('click', ()=>go('#/admin/'+b.getAttribute('data-asec'))));
+  document.getElementById('adminLogoutBtn')?.addEventListener('click', ()=>{ clearUser(); go('#/'); render(); });
+  loadAdminSection(AdminState.section);
+}
+
+async function loadAdminSection(section){
+  const main = document.getElementById('adminMain');
+  if(!main) return;
+  try{
+    if(section==='orders') return await renderAdminOrders(main);
+    if(section==='products') return await renderAdminProducts(main);
+    if(section==='add') return await renderAdminAddProduct(main);
+    if(section==='price') return await renderAdminPrice(main);
+  }catch(err){
+    main.innerHTML = `<div class="errbox">${err.message}</div>`;
+  }
+}
+
+async function renderAdminOrders(main){
+  const [ordersRes, statsRes] = await Promise.all([
+    api('/api/admin/orders', { auth:true }),
+    api('/api/admin/stats', { auth:true }),
+  ]);
+  const orders = ordersRes.orders;
+  const statusFa = {pending_payment:'در انتظار پرداخت', processing:'در حال آماده‌سازی', shipped:'ارسال شده', done:'تحویل شده', canceled:'لغو شده'};
+  main.innerHTML = `
+    <div class="admin-head"><h2>سفارش‌های ثبت‌شده</h2></div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="num">${statsRes.orderCount}</div><div class="lbl">تعداد کل سفارش‌ها</div></div>
+      <div class="stat-card"><div class="num">${statsRes.pendingCount}</div><div class="lbl">در انتظار پرداخت</div></div>
+      <div class="stat-card"><div class="num">${toman(statsRes.totalRevenue)}</div><div class="lbl">مجموع فروش پرداخت‌شده (تومان)</div></div>
+    </div>
+    ${orders.length===0? `<div class="empty">هنوز سفارشی ثبت نشده است.</div>` : `
+    <table>
+      <thead><tr><th>مشتری</th><th>تماس</th><th>آدرس</th><th>اقلام</th><th>مبلغ</th><th>وضعیت</th><th>تاریخ</th></tr></thead>
+      <tbody>
+      ${orders.map(o=>`
+        <tr>
+          <td>${o.fullname}</td>
+          <td>${o.phone}</td>
+          <td style="max-width:200px;">${o.address}</td>
+          <td>${o.items.map(i=>i.name+' ×'+i.qty).join('<br>')}</td>
+          <td>${toman(o.total)}</td>
+          <td>
+            <select data-oid="${o._id}" class="ord-status">
+              ${Object.entries(statusFa).map(([k,v])=>`<option value="${k}" ${o.status===k?'selected':''}>${v}</option>`).join('')}
+            </select>
+          </td>
+          <td>${new Date(o.createdAt).toLocaleDateString('fa-IR')}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`}
+  `;
+  main.querySelectorAll('.ord-status').forEach(sel=>{
+    sel.addEventListener('change', async ()=>{
+      try{
+        await api('/api/admin/orders/'+sel.getAttribute('data-oid')+'/status', { method:'PUT', auth:true, body:{ status: sel.value } });
+        toast('وضعیت سفارش به‌روزرسانی شد');
+      }catch(err){ toast(err.message); }
+    });
+  });
+}
+
+async function renderAdminProducts(main){
+  const r = await api('/api/admin/products', { auth:true });
+  const products = r.products;
+  main.innerHTML = `
+    <div class="admin-head"><h2>محصولات</h2><button class="btn solid sm" id="goAddProduct">+ افزودن محصول جدید</button></div>
+    ${products.length===0? `<div class="empty">هنوز محصولی اضافه نشده است.</div>` : `
+    <table>
+      <thead><tr><th>تصویر</th><th>نام</th><th>دسته</th><th>وزن</th><th>اجرت</th><th>قیمت نهایی</th><th></th></tr></thead>
+      <tbody>
+      ${products.map(p=>`
+        <tr>
+          <td>${p.image?`<img class="prod-row-img" src="${imgUrl(p.image)}">`:'—'}</td>
+          <td>${p.name}${!p.isActive?' <span class="pill canceled">غیرفعال</span>':''}</td>
+          <td>${p.subcategory}</td>
+          <td>${p.weight} گرم</td>
+          <td>${toman(p.laborFee)}</td>
+          <td>${toman(p.price)} تومان</td>
+          <td><button class="btn sm danger" data-del="${p._id}">حذف</button></td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`}
+  `;
+  document.getElementById('goAddProduct').addEventListener('click', ()=>go('#/admin/add'));
+  main.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click', async ()=>{
+    if(!confirm('آیا از حذف این محصول مطمئن هستید؟')) return;
+    try{
+      await api('/api/admin/products/'+b.getAttribute('data-del'), { method:'DELETE', auth:true });
+      toast('محصول حذف شد');
+      renderAdminProducts(main);
+    }catch(err){ toast(err.message); }
+  }));
+}
+
+async function renderAdminAddProduct(main){
+  const goldRes = await api('/api/products/meta/gold-price');
+  const goldPrice = goldRes.price;
+  main.innerHTML = `
+    <div class="admin-head"><h2>افزودن محصول جدید</h2></div>
+    <div class="pd-grid">
+      <div>
+        <div id="addErr"></div>
+        <div class="field"><label>نام محصول</label><input id="npName"></div>
+        <div class="row2">
+          <div class="field"><label>دسته اصلی</label>
+            <select id="npCat">
+              ${Object.entries(CATEGORIES).map(([k,c])=>`<option value="${k}">${c.label}</option>`).join('')}
+            </select>
+          </div>
+          <div class="field"><label>زیرشاخه</label><select id="npSub"></select></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>وزن (گرم)</label><input id="npWeight" type="number" step="0.01"></div>
+          <div class="field"><label>اجرت ساخت (تومان)</label><input id="npLabor" type="number" step="1000"></div>
+        </div>
+        <div class="field">
+          <label>تصویر محصول</label>
+          <div class="imgpick" id="imgPick"><div id="imgPickInner">برای انتخاب تصویر کلیک کنید</div></div>
+          <input type="file" id="npImage" accept="image/*" style="display:none;">
+          <div class="hint">تصویر پیش از ارسال به‌صورت خودکار فشرده می‌شود.</div>
+        </div>
+        <button class="btn solid block" id="saveProductBtn">ذخیره محصول</button>
+      </div>
+      <div>
+        <div class="hint" style="margin-bottom:10px;">قیمت‌گذاری بر اساس نرخ روز طلای ۱۸ عیار: <b style="color:var(--gold-1)">${toman(goldPrice)} تومان/گرم</b></div>
+        <div class="breakdown" id="priceBreakdown">
+          <div><span>قیمت طلا</span><span>۰ تومان</span></div>
+          <div><span>اجرت ساخت</span><span>۰ تومان</span></div>
+          <div><span>سود (۷٪)</span><span>۰ تومان</span></div>
+          <div><span>مالیات (۱۰٪)</span><span>۰ تومان</span></div>
+          <div class="total"><span>قیمت نهایی</span><span>۰ تومان</span></div>
+        </div>
+      </div>
+    </div>`;
+
+  const catSel = document.getElementById('npCat');
+  const subSel = document.getElementById('npSub');
+  function fillSubs(){
+    subSel.innerHTML = CATEGORIES[catSel.value].subs.map(s=>`<option value="${s}">${s}</option>`).join('');
+  }
+  fillSubs();
+  catSel.addEventListener('change', fillSubs);
+
+  let imageBlob = null;
+  document.getElementById('imgPick').addEventListener('click', ()=>document.getElementById('npImage').click());
+  document.getElementById('npImage').addEventListener('change', (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ()=>{
+      const img = new Image();
+      img.onload = ()=>{
+        const canvas = document.createElement('canvas');
+        const maxSize = 900;
+        let w = img.width, h = img.height;
+        if(w>h && w>maxSize){ h = h*maxSize/w; w = maxSize; } else if(h>maxSize){ w = w*maxSize/h; h = maxSize; }
+        canvas.width=w; canvas.height=h;
+        canvas.getContext('2d').drawImage(img,0,0,w,h);
+        canvas.toBlob((blob)=>{
+          imageBlob = blob;
+          document.getElementById('imgPickInner').innerHTML = `<img src="${canvas.toDataURL('image/jpeg',0.85)}">`;
+        }, 'image/jpeg', 0.85);
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+
+  function updateBreakdown(){
+    const w = Number(document.getElementById('npWeight').value)||0;
+    const l = Number(document.getElementById('npLabor').value)||0;
+    const b = calcPrice(w,l,goldPrice);
+    document.getElementById('priceBreakdown').innerHTML = `
+      <div><span>قیمت طلا (وزن × نرخ روز)</span><span>${toman(b.goldValue)} تومان</span></div>
+      <div><span>اجرت ساخت</span><span>${toman(b.laborFee)} تومان</span></div>
+      <div><span>سود (۷٪)</span><span>${toman(b.profit)} تومان</span></div>
+      <div><span>مالیات (۱۰٪)</span><span>${toman(b.tax)} تومان</span></div>
+      <div class="total"><span>قیمت نهایی</span><span>${toman(b.total)} تومان</span></div>`;
+  }
+  document.getElementById('npWeight').addEventListener('input', updateBreakdown);
+  document.getElementById('npLabor').addEventListener('input', updateBreakdown);
+
+  document.getElementById('saveProductBtn').addEventListener('click', async ()=>{
+    const name = document.getElementById('npName').value.trim();
+    const weight = Number(document.getElementById('npWeight').value);
+    const laborFee = Number(document.getElementById('npLabor').value) || 0;
+    const errEl = document.getElementById('addErr');
+    if(!name || !weight || weight<=0){ errEl.innerHTML = `<div class="errbox">نام و وزن محصول را به‌درستی وارد کنید.</div>`; return; }
+    const btn = document.getElementById('saveProductBtn');
+    btn.disabled = true; btn.textContent = 'در حال ذخیره...';
+    try{
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('category', catSel.value);
+      fd.append('subcategory', subSel.value);
+      fd.append('weight', weight);
+      fd.append('laborFee', laborFee);
+      if(imageBlob) fd.append('image', imageBlob, 'product.jpg');
+
+      await api('/api/admin/products', { method:'POST', auth:true, isForm:true, body:fd });
+      toast('محصول با موفقیت اضافه شد');
+      go('#/admin/products');
+      render();
+    }catch(err){
+      errEl.innerHTML = `<div class="errbox">${err.message}</div>`;
+    }finally{
+      btn.disabled = false; btn.textContent = 'ذخیره محصول';
+    }
+  });
+}
+
+async function renderAdminPrice(main){
+  const r = await api('/api/products/meta/gold-price');
+  main.innerHTML = `
+    <div class="admin-head"><h2>قیمت لحظه‌ای طلا</h2></div>
+    <div style="max-width:420px;">
+      <div class="hint" style="margin-bottom:14px;">این عدد به‌عنوان نرخ پایه طلای ۱۸ عیار (به ازای هر گرم) در محاسبه قیمت محصولات جدید و نمایش بالای سایت استفاده می‌شود.</div>
+      <div class="field"><label>نرخ فعلی هر گرم طلای ۱۸ عیار (تومان)</label><input id="goldInput" type="number" step="1000" value="${r.price}"></div>
+      <button class="btn solid" id="saveGoldBtn">به‌روزرسانی نرخ</button>
+      <p class="small-note" style="margin-top:10px;">آخرین به‌روزرسانی: ${r.updatedAt? new Date(r.updatedAt).toLocaleString('fa-IR') : '—'}</p>
+      <div class="divider" style="margin:22px 0;"></div>
+      <div class="hint" style="margin-bottom:10px;">بعد از تغییر نرخ، برای اعمال آن روی محصولات موجود از دکمه زیر استفاده کنید:</div>
+      <button class="btn ghost" id="recalcBtn">بازمحاسبه قیمت همه محصولات</button>
+    </div>`;
+  document.getElementById('saveGoldBtn').addEventListener('click', async ()=>{
+    const val = Number(document.getElementById('goldInput').value);
+    if(!val || val<=0) return;
+    try{
+      await api('/api/admin/gold-price', { method:'PUT', auth:true, body:{ price: val } });
+      State.goldPrice = val;
+      toast('نرخ طلا به‌روزرسانی شد');
+    }catch(err){ toast(err.message); }
+  });
+  document.getElementById('recalcBtn').addEventListener('click', async ()=>{
+    try{
+      const res = await api('/api/admin/products/recalculate-all', { method:'POST', auth:true });
+      toast(res.message);
+    }catch(err){ toast(err.message); }
+  });
+}
+
+/* ---------------- boot ---------------- */
+function SetupErrorScreen(err){
+  document.getElementById('app').innerHTML = `
+    <div class="setup-screen"><div class="setup-box">
+      <div style="margin-bottom:16px;">${svgLogo()}</div>
+      <h2 class="disp" style="color:var(--gold-1);font-size:20px;">اتصال به بک‌اند برقرار نشد</h2>
+      <p style="color:var(--muted);font-size:13.5px;line-height:2;margin-top:10px;">${err.message}</p>
+      <p style="color:var(--muted);font-size:12.5px;margin-top:14px;">آدرس فعلی تنظیم‌شده: <code>${API_BASE}</code><br>مطمئن شوید سرور بک‌اند (nouvelle-backend) در حال اجراست و متغیر <code>API_BASE</code> در ابتدای این فایل درست است.</p>
+      <button class="btn solid" style="margin-top:18px;" onclick="location.reload()">تلاش مجدد</button>
+    </div></div>`;
+}
+
+async function boot(){
+  document.getElementById('app').innerHTML = `<div class="loader-wrap"><div class="spin"></div></div>`;
+  try{
+    await loadGoldPrice();
+    await loadProducts();
+    await restoreSession();
+  }catch(err){
+    SetupErrorScreen(err);
+    return;
+  }
+  render();
+  // به‌روزرسانی دوره‌ای نرخ طلا و محصولات برای همگام‌ماندن با تغییرات پنل مدیریت
+  setInterval(async ()=>{
+    try{
+      const oldPrice = State.goldPrice;
+      await loadGoldPrice();
+      await loadProducts();
+      if(oldPrice !== State.goldPrice) render();
+    }catch(e){ /* silent */ }
+  }, 20000);
+}
+boot();
+</script>
+</body>
+</html>
