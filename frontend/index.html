@@ -8,17 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500;1,600&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0908;
-  --bg-soft:#141110;
-  --panel:#1a1614;
-  --line:rgba(201,160,76,.22);
-  --gold-1:#f2d78a;
-  --gold-2:#caa04c;
-  --gold-3:#9c7a34;
-  --cream:#efe6d3;
-  --muted:#a89a86;
-  --danger:#c1584a;
-  --ok:#7fae7a;
+  --bg:#faf7f1;
+  --bg-soft:#f2ead9;
+  --panel:#ffffff;
+  --line:rgba(154,116,44,.25);
+  --gold-1:#a97e35;
+  --gold-2:#8c6b2e;
+  --gold-3:#6b5527;
+  --cream:#2b2318;
+  --muted:#8a7a63;
+  --danger:#b23b30;
+  --ok:#4f8f57;
   --radius:2px;
 }
 *{box-sizing:border-box;}
@@ -38,7 +38,7 @@ img{max-width:100%;display:block;}
 
 /* ---------- top bar ---------- */
 .topbar{
-  background:#000;border-bottom:1px solid var(--line);
+  background:var(--bg-soft);border-bottom:1px solid var(--line);
   font-size:12.5px;color:var(--muted);letter-spacing:.03em;
 }
 .topbar-in{max-width:1240px;margin:0 auto;padding:7px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
@@ -52,7 +52,7 @@ img{max-width:100%;display:block;}
 
 /* ---------- header ---------- */
 header.site{
-  position:sticky;top:0;z-index:40;background:rgba(11,9,8,.92);backdrop-filter:blur(10px);
+  position:sticky;top:0;z-index:40;background:rgba(250,247,241,.88);backdrop-filter:blur(10px);
   border-bottom:1px solid var(--line);
 }
 .header-in{max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
@@ -69,12 +69,12 @@ nav.mega{display:flex;gap:2px;}
 .mega-item.open>button svg{transform:rotate(180deg);}
 .mega-panel{
   position:absolute;top:100%;right:0;min-width:230px;background:var(--panel);
-  border:1px solid var(--line);box-shadow:0 20px 40px rgba(0,0,0,.5);
+  border:1px solid var(--line);box-shadow:0 20px 40px rgba(60,45,20,.14);
   padding:10px;display:none;
 }
 .mega-item.open .mega-panel{display:block;}
 .mega-panel a{display:block;padding:9px 12px;font-size:13.5px;color:var(--muted);border-radius:1px;}
-.mega-panel a:hover{background:rgba(201,160,76,.1);color:var(--gold-1);}
+.mega-panel a:hover{background:rgba(140,107,46,.08);color:var(--gold-1);}
 
 .header-actions{display:flex;align-items:center;gap:6px;}
 .icon-btn{background:none;border:1px solid transparent;color:var(--cream);padding:8px;border-radius:50%;position:relative;display:flex;}
@@ -89,7 +89,7 @@ nav.mega{display:flex;gap:2px;}
 .hero{position:relative;padding:90px 20px 70px;text-align:center;overflow:hidden;border-bottom:1px solid var(--line);}
 .hero::before{
   content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse at 50% -10%, rgba(201,160,76,.16), transparent 60%);
+  background:radial-gradient(ellipse at 50% -10%, rgba(140,107,46,.10), transparent 60%);
   pointer-events:none;
 }
 .hero-ring{width:120px;height:120px;margin:0 auto 26px;opacity:.9;}
@@ -120,7 +120,7 @@ nav.mega{display:flex;gap:2px;}
 .divider{width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--line) 20%,var(--line) 80%,transparent);margin:0;}
 
 .cat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.cat-card{position:relative;aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(160deg,#201a15,#0d0b09);}
+.cat-card{position:relative;aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(160deg,#fbf3e2,#f2e6cc);}
 .cat-card h3{font-family:'Playfair Display',serif;color:var(--gold-1);font-size:22px;margin:0;font-weight:600;}
 .cat-card span{color:var(--muted);font-size:12px;}
 .cat-card:hover{border-color:var(--gold-2);}
@@ -128,7 +128,7 @@ nav.mega{display:flex;gap:2px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;}
 .pcard{background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:.2s;}
 .pcard:hover{border-color:var(--gold-2);transform:translateY(-3px);}
-.pcard .img{aspect-ratio:1;background:#100d0b;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pcard .img{aspect-ratio:1;background:#f3ead9;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .pcard .img img{width:100%;height:100%;object-fit:cover;}
 .pcard .ph{color:var(--gold-3);width:40%;}
 .pcard .info{padding:14px 14px 16px;}
@@ -150,7 +150,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft
 .foot-bottom{text-align:center;padding:22px 20px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);}
 
 /* ---------- modal / drawer ---------- */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);z-index:100;display:none;}
+.overlay{position:fixed;inset:0;background:rgba(43,35,24,.45);backdrop-filter:blur(2px);z-index:100;display:none;}
 .overlay.show{display:block;}
 .drawer{position:fixed;top:0;left:0;height:100%;width:min(400px,92vw);background:var(--panel);border-right:1px solid var(--line);z-index:101;transform:translateX(-105%);transition:transform .25s ease;display:flex;flex-direction:column;}
 .drawer.show{transform:translateX(0);}
@@ -163,7 +163,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft
 .close-x:hover{color:var(--gold-1);}
 
 .cart-row{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}
-.cart-row .img{width:64px;height:64px;background:#100d0b;flex:none;overflow:hidden;}
+.cart-row .img{width:64px;height:64px;background:#f3ead9;flex:none;overflow:hidden;}
 .cart-row .img img{width:100%;height:100%;object-fit:cover;}
 .cart-row .name{font-size:13.5px;margin:0 0 4px;}
 .cart-row .cat{font-size:11px;color:var(--muted);}
@@ -176,7 +176,7 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft
 .cart-total{display:flex;justify-content:space-between;font-size:15px;margin-bottom:14px;}
 .cart-total b{color:var(--gold-1);}
 
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:110;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-bg{position:fixed;inset:0;background:rgba(43,35,24,.5);z-index:110;display:none;align-items:center;justify-content:center;padding:20px;}
 .modal-bg.show{display:flex;}
 .modal{background:var(--panel);border:1px solid var(--line);max-width:520px;width:100%;max-height:88vh;overflow-y:auto;}
 .modal.wide{max-width:900px;}
@@ -187,20 +187,20 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft
 .field{margin-bottom:14px;}
 .field label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:6px;}
 .field input,.field select,.field textarea{
-  width:100%;background:#0f0d0b;border:1px solid var(--line);color:var(--cream);padding:11px 12px;font-size:13.5px;font-family:inherit;border-radius:1px;
+  width:100%;background:#fbf7ef;border:1px solid var(--line);color:var(--cream);padding:11px 12px;font-size:13.5px;font-family:inherit;border-radius:1px;
 }
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold-2);}
 .field textarea{resize:vertical;min-height:70px;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .hint{font-size:11.5px;color:var(--muted);margin-top:5px;}
-.errbox{background:rgba(193,88,74,.12);border:1px solid rgba(193,88,74,.4);color:#e2a099;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
-.okbox{background:rgba(127,174,122,.12);border:1px solid rgba(127,174,122,.4);color:#bcdab8;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
+.errbox{background:rgba(178,59,48,.1);border:1px solid rgba(178,59,48,.35);color:#8a2e24;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
+.okbox{background:rgba(79,143,87,.1);border:1px solid rgba(79,143,87,.35);color:#2f6b39;padding:10px 12px;font-size:12.5px;margin-bottom:14px;}
 .tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:18px;}
 .tabs button{flex:1;background:none;border:none;color:var(--muted);padding:12px;font-size:13.5px;border-bottom:2px solid transparent;}
 .tabs button.active{color:var(--gold-1);border-color:var(--gold-2);}
 
 .pd-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
-.pd-img{aspect-ratio:1;background:#100d0b;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.pd-img{aspect-ratio:1;background:#f3ead9;display:flex;align-items:center;justify-content:center;overflow:hidden;}
 .pd-img img{width:100%;height:100%;object-fit:cover;}
 .pd-cat{color:var(--gold-2);font-size:12px;letter-spacing:.05em;}
 .pd-name{font-family:'Playfair Display',serif;font-size:24px;color:var(--cream);margin:6px 0 14px;}
@@ -214,10 +214,10 @@ footer{border-top:1px solid var(--line);margin-top:40px;background:var(--bg-soft
 
 /* admin */
 .admin-shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh;}
-.admin-side{background:#0d0a08;border-left:1px solid var(--line);padding:22px 14px;}
+.admin-side{background:var(--bg-soft);border-left:1px solid var(--line);padding:22px 14px;}
 .admin-side .brand{margin-bottom:26px;padding:0 8px;}
 .admin-nav button{display:block;width:100%;text-align:right;background:none;border:none;color:var(--muted);padding:11px 12px;font-size:13.5px;margin-bottom:3px;border-radius:1px;}
-.admin-nav button.active,.admin-nav button:hover{background:rgba(201,160,76,.1);color:var(--gold-1);}
+.admin-nav button.active,.admin-nav button:hover{background:rgba(140,107,46,.08);color:var(--gold-1);}
 .admin-main{padding:28px 32px;}
 .admin-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;flex-wrap:wrap;gap:12px;}
 .admin-head h2{font-family:'Playfair Display',serif;color:var(--gold-1);font-size:24px;margin:0;}
@@ -226,8 +226,8 @@ th,td{padding:11px 12px;text-align:right;border-bottom:1px solid var(--line);}
 th{color:var(--gold-2);font-weight:600;font-size:12px;}
 td{color:var(--cream);}
 .pill{padding:3px 10px;border-radius:20px;font-size:11px;display:inline-block;}
-.pill.pending_payment{background:rgba(201,160,76,.15);color:var(--gold-1);}
-.pill.processing{background:rgba(127,174,148,.15);color:#7faeae;}
+.pill.pending_payment{background:rgba(140,107,46,.14);color:var(--gold-1);}
+.pill.processing{background:rgba(79,143,148,.15);color:#2f6b6b;}
 .pill.shipped{background:rgba(127,174,122,.15);color:var(--ok);}
 .pill.done{background:rgba(127,174,122,.25);color:var(--ok);}
 .pill.canceled{background:rgba(193,88,74,.15);color:var(--danger);}
@@ -237,7 +237,7 @@ td{color:var(--cream);}
 .stat-card .lbl{font-size:12px;color:var(--muted);margin-top:4px;}
 .imgpick{border:1px dashed var(--line);padding:16px;text-align:center;cursor:pointer;color:var(--muted);font-size:12.5px;}
 .imgpick img{max-height:140px;margin:0 auto;}
-.prod-row-img{width:40px;height:40px;object-fit:cover;background:#100d0b;}
+.prod-row-img{width:40px;height:40px;object-fit:cover;background:#f3ead9;}
 .small-note{font-size:11px;color:var(--muted);}
 .order-detail{background:var(--bg-soft);border:1px solid var(--line);padding:14px;margin-top:8px;font-size:12.5px;}
 .order-detail div{padding:3px 0;}
@@ -257,7 +257,7 @@ td{color:var(--cream);}
 .spin{width:34px;height:34px;border:2px solid var(--line);border-top-color:var(--gold-2);border-radius:50%;animation:spin 1s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .toast-wrap{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:200;display:flex;flex-direction:column;gap:8px;align-items:center;}
-.toast{background:#1c1712;border:1px solid var(--gold-2);color:var(--gold-1);padding:11px 20px;font-size:13px;box-shadow:0 10px 30px rgba(0,0,0,.5);animation:toastin .2s ease;}
+.toast{background:#ffffff;border:1px solid var(--gold-2);color:var(--cream);padding:11px 20px;font-size:13px;box-shadow:0 10px 30px rgba(60,45,20,.18);animation:toastin .2s ease;}
 @keyframes toastin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 .mmenu{position:fixed;top:0;right:0;height:100%;width:82vw;max-width:340px;background:var(--panel);z-index:120;transform:translateX(105%);transition:transform .25s;overflow-y:auto;border-left:1px solid var(--line);}
@@ -269,7 +269,7 @@ td{color:var(--cream);}
 
 .setup-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px;}
 .setup-box{max-width:480px;background:var(--panel);border:1px solid var(--line);padding:30px;text-align:center;}
-.setup-box code{background:#0f0d0b;padding:2px 6px;border-radius:2px;color:var(--gold-1);}
+.setup-box code{background:var(--bg-soft);padding:2px 6px;border-radius:2px;color:var(--gold-2);}
 </style>
 </head>
 <body>
@@ -341,13 +341,14 @@ function toast(msg){
 }
 
 /* ---------------- pricing formula (mirrors backend utils/pricing.js) ---------------- */
-function calcPrice(weight, laborFee, goldPricePerGram){
-  weight = Number(weight)||0; laborFee = Number(laborFee)||0; goldPricePerGram = Number(goldPricePerGram)||0;
+function calcPrice(weight, laborPercent, goldPricePerGram){
+  weight = Number(weight)||0; laborPercent = Number(laborPercent)||0; goldPricePerGram = Number(goldPricePerGram)||0;
   const goldValue = goldPricePerGram * weight;
+  const laborFee = goldValue * (laborPercent/100);
   const profit = (goldValue + laborFee) * 0.07;
   const tax = (laborFee + profit) * 0.10;
   const total = goldValue + laborFee + profit + tax;
-  return { goldValue, laborFee, profit, tax, total };
+  return { goldValue, laborPercent, laborFee, profit, tax, total };
 }
 
 /* ---------------- app state ---------------- */
@@ -586,7 +587,7 @@ function ProductPage(route){
         <div class="small-note">وزن: ${p.weight} گرم</div>
         <div class="breakdown">
           <div><span>قیمت طلا (وزن × نرخ روز)</span><span>${toman(goldValue)} تومان</span></div>
-          <div><span>اجرت ساخت</span><span>${toman(p.laborFee)} تومان</span></div>
+          <div><span>اجرت ساخت (${p.laborPercent}٪ از قیمت طلا)</span><span>${toman(p.laborFee)} تومان</span></div>
           <div><span>سود (۷٪)</span><span>${toman(p.profit)} تومان</span></div>
           <div><span>مالیات (۱۰٪)</span><span>${toman(p.tax)} تومان</span></div>
           <div class="total"><span>قیمت نهایی</span><span>${toman(p.price)} تومان</span></div>
@@ -1074,7 +1075,7 @@ async function renderAdminProducts(main){
           <td>${p.name}${!p.isActive?' <span class="pill canceled">غیرفعال</span>':''}</td>
           <td>${p.subcategory}</td>
           <td>${p.weight} گرم</td>
-          <td>${toman(p.laborFee)}</td>
+          <td>${p.laborPercent}٪ <span class="small-note">(${toman(p.laborFee)} ت)</span></td>
           <td>${toman(p.price)} تومان</td>
           <td><button class="btn sm danger" data-del="${p._id}">حذف</button></td>
         </tr>`).join('')}
@@ -1111,7 +1112,7 @@ async function renderAdminAddProduct(main){
         </div>
         <div class="row2">
           <div class="field"><label>وزن (گرم)</label><input id="npWeight" type="number" step="0.01"></div>
-          <div class="field"><label>اجرت ساخت (تومان)</label><input id="npLabor" type="number" step="1000"></div>
+          <div class="field"><label>درصد اجرت (٪)</label><input id="npLabor" type="number" step="0.5" placeholder="مثلا 12"></div>
         </div>
         <div class="field">
           <label>تصویر محصول</label>
@@ -1172,7 +1173,7 @@ async function renderAdminAddProduct(main){
     const b = calcPrice(w,l,goldPrice);
     document.getElementById('priceBreakdown').innerHTML = `
       <div><span>قیمت طلا (وزن × نرخ روز)</span><span>${toman(b.goldValue)} تومان</span></div>
-      <div><span>اجرت ساخت</span><span>${toman(b.laborFee)} تومان</span></div>
+      <div><span>اجرت ساخت (${b.laborPercent}٪ از قیمت طلا)</span><span>${toman(b.laborFee)} تومان</span></div>
       <div><span>سود (۷٪)</span><span>${toman(b.profit)} تومان</span></div>
       <div><span>مالیات (۱۰٪)</span><span>${toman(b.tax)} تومان</span></div>
       <div class="total"><span>قیمت نهایی</span><span>${toman(b.total)} تومان</span></div>`;
@@ -1183,7 +1184,7 @@ async function renderAdminAddProduct(main){
   document.getElementById('saveProductBtn').addEventListener('click', async ()=>{
     const name = document.getElementById('npName').value.trim();
     const weight = Number(document.getElementById('npWeight').value);
-    const laborFee = Number(document.getElementById('npLabor').value) || 0;
+    const laborPercent = Number(document.getElementById('npLabor').value) || 0;
     const errEl = document.getElementById('addErr');
     if(!name || !weight || weight<=0){ errEl.innerHTML = `<div class="errbox">نام و وزن محصول را به‌درستی وارد کنید.</div>`; return; }
     const btn = document.getElementById('saveProductBtn');
@@ -1194,7 +1195,7 @@ async function renderAdminAddProduct(main){
       fd.append('category', catSel.value);
       fd.append('subcategory', subSel.value);
       fd.append('weight', weight);
-      fd.append('laborFee', laborFee);
+      fd.append('laborPercent', laborPercent);
       if(imageBlob) fd.append('image', imageBlob, 'product.jpg');
 
       await api('/api/admin/products', { method:'POST', auth:true, isForm:true, body:fd });

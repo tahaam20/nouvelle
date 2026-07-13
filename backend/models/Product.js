@@ -31,10 +31,11 @@ const productSchema = new mongoose.Schema(
     category: { type: String, enum: Object.keys(CATEGORY_MAP), required: true },
     subcategory: { type: String, required: true },
     weight: { type: Number, required: true, min: 0.01 }, // گرم
-    laborFee: { type: Number, required: true, min: 0 }, // اجرت، تومان
+    laborPercent: { type: Number, required: true, min: 0 }, // درصد اجرت، مثلا ۱۲ یعنی ۱۲٪ از قیمت طلا
 
-    // این سه فیلد در لحظه ثبت محصول بر اساس نرخ روز طلا محاسبه و ذخیره می‌شوند
+    // این فیلدها در لحظه ثبت محصول بر اساس نرخ روز طلا و درصد اجرت محاسبه و ذخیره می‌شوند
     goldPriceAtCreation: { type: Number, required: true },
+    laborFee: { type: Number, required: true }, // مبلغ محاسبه‌شده اجرت (تومان) = قیمت طلا × درصد اجرت
     profit: { type: Number, required: true }, // ۷٪
     tax: { type: Number, required: true }, // ۱۰٪
     price: { type: Number, required: true }, // قیمت نهایی محاسبه‌شده

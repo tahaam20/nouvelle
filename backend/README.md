@@ -55,10 +55,12 @@ nouvelle-backend/
 ## فرمول قیمت‌گذاری (utils/pricing.js)
 ```
 قیمت طلا = وزن × نرخ روز طلای ۱۸ عیار
+اجرت     = درصد اجرت (که مدیر وارد می‌کند، مثلا ۱۲) × قیمت طلا
 سود      = ۷٪ از (قیمت طلا + اجرت)
 مالیات   = ۱۰٪ از (اجرت + سود)
 قیمت نهایی = قیمت طلا + اجرت + سود + مالیات
 ```
+اجرت به‌صورت **درصد** در پنل مدیریت وارد می‌شود (نه مبلغ ثابت)؛ مبلغ نهایی اجرت بر اساس همان درصد و نرخ روز طلا محاسبه و ذخیره می‌شود.
 این محاسبه در لحظه‌ی ثبت یا ویرایش هر محصول در پنل مدیریت انجام و روی محصول ذخیره می‌شود. با تغییر نرخ طلا در پنل، می‌توانید از دکمه‌ی «بازمحاسبه همه محصولات» (`POST /api/admin/products/recalculate-all`) برای به‌روزرسانی قیمت محصولات موجود استفاده کنید.
 
 ---
@@ -101,7 +103,7 @@ Authorization: Bearer <token>
 ### پنل مدیریت (نیاز به توکن مدیر)
 | متد | مسیر | توضیح |
 |---|---|---|
-| POST | `/api/admin/products` | افزودن محصول — `multipart/form-data`: `name, category, subcategory, weight, laborFee, image` |
+| POST | `/api/admin/products` | افزودن محصول — `multipart/form-data`: `name, category, subcategory, weight, laborPercent, image` |
 | GET  | `/api/admin/products` | همه محصولات |
 | PUT  | `/api/admin/products/:id` | ویرایش محصول |
 | DELETE | `/api/admin/products/:id` | حذف محصول |

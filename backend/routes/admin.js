@@ -22,23 +22,24 @@ async function getGoldPrice() {
 // POST /api/admin/products — افزودن محصول جدید (multipart/form-data با فیلد image)
 router.post('/products', upload.single('image'), async (req, res) => {
   try {
-    const { name, category, subcategory, weight, laborFee } = req.body;
-    if (!name || !category || !subcategory || !weight) {
-      return res.status(400).json({ message: 'نام، دسته‌بندی، زیرشاخه و وزن الزامی است.' });
+    const { name, category, subcategory, weight, laborPercent } = req.body;
+    if (!name || !category || !subcategory || !weight || laborPercent === undefined) {
+      return res.status(400).json({ message: 'نام، دسته‌بندی، زیرشاخه، وزن و درصد اجرت الزامی است.' });
     }
     if (!CATEGORY_MAP[category] || !CATEGORY_MAP[category].includes(subcategory)) {
       return res.status(400).json({ message: 'دسته‌بندی یا زیرشاخه نامعتبر است.' });
     }
 
     const goldPrice = await getGoldPrice();
-    const breakdown = calcPrice(weight, laborFee || 0, goldPrice);
+    const breakdown = calcPrice(weight, laborPercent, goldPrice);
 
     const product = await Product.create({
       name,
       category,
       subcategory,
       weight,
-      laborFee: Number(laborFee) || 0,
+      laborPercent: Number(laborPercent) || 0,
+      laborFee: breakdown.laborFee,
       goldPriceAtCreation: goldPrice,
       profit: breakdown.profit,
       tax: breakdown.tax,
@@ -64,18 +65,19 @@ router.put('/products/:id', upload.single('image'), async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (!product) return res.status(404).json({ message: 'محصول یافت نشد.' });
 
-    const { name, category, subcategory, weight, laborFee, isActive } = req.body;
+    const { name, category, subcategory, weight, laborPercent, isActive } = req.body;
     if (name) product.name = name;
     if (category) product.category = category;
     if (subcategory) product.subcategory = subcategory;
     if (weight) product.weight = weight;
-    if (laborFee !== undefined) product.laborFee = Number(laborFee);
+    if (laborPercent !== undefined) product.laborPercent = Number(laborPercent);
     if (isActive !== undefined) product.isActive = isActive === 'true' || isActive === true;
     if (req.file) product.image = `/uploads/${req.file.filename}`;
 
     const goldPrice = await getGoldPrice();
-    const breakdown = calcPrice(product.weight, product.laborFee, goldPrice);
+    const breakdown = calcPrice(product.weight, product.laborPercent, goldPrice);
     product.goldPriceAtCreation = goldPrice;
+    product.laborFee = breakdown.laborFee;
     product.profit = breakdown.profit;
     product.tax = breakdown.tax;
     product.price = breakdown.total;
@@ -99,8 +101,9 @@ router.post('/products/recalculate-all', async (req, res) => {
   const goldPrice = await getGoldPrice();
   const products = await Product.find();
   for (const product of products) {
-    const breakdown = calcPrice(product.weight, product.laborFee, goldPrice);
+    const breakdown = calcPrice(product.weight, product.laborPercent, goldPrice);
     product.goldPriceAtCreation = goldPrice;
+    product.laborFee = breakdown.laborFee;
     product.profit = breakdown.profit;
     product.tax = breakdown.tax;
     product.price = breakdown.total;
